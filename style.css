@@ -1,0 +1,26 @@
+nav{
+    background-color: #333;
+    padding:10px;
+}
+nav a{
+    color:white;
+    margin-right:15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+section{
+    margin:20px;
+
+}
+.product{
+    border:1px solid #ccc;
+    padding:10px;
+    width: 200px;
+    display: inline-block;
+    margin: right 10px;
+    text-align:center;
+}
+button:hover{
+    background-color:#218838;
+    
+}
