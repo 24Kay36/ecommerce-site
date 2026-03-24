@@ -17,6 +17,22 @@ console.log(cartList);
             let li = document.createElement("li");
             li.textContent = cart[i].name + " R" + cart[i].price;
             cartList.appendChild(li);
+
+            // remove button
+            let remove=document.createElement("button");
+            removeBtn.textContent="Remove";
+            removeBtn.style.marginLeft="10px";
+            removeBtn.addEventListener("click",function(){
+                cart.splice(i,1);  // remove this item
+                updateCart();
+            })
+            li.appendChild(removeBtn);// adds a node to the end of a parent node's child list
+            cartList.appendChild(li);
+            let total=0;
+            for(let i=0;i<cart.length;i++){
+                total=total+cart[i].price;
+            }
+          document.getElementById("cart-total").textContent="Total: R"+total.toFixed(2);
         }
     }
 
