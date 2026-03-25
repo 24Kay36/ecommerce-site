@@ -14,14 +14,38 @@ section{
    
 
 }
+#products-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap:20px;
+    padding: 20px;
+}
 .product{
-    border:1px solid #ccc;
-    padding:15px;
-    width: 200px;
-    text-align:center;
+    border:1px solid #ddd;
     border-radius: 10px;
+    padding:15px;
+    background-color: #fff;
+    text-align:center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s,box-shadow 0.3s;
      
+}
+.product:hover{
+    transform: translate(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+button.add-btn{
+    background-color: #007bff;
+    color:#fff;
+    border:none;
+    padding: 10px 15px;
+    border-radius:5px;
+    cursor: pointer;
+    transition: background-color 0.3s,transform 0.2s;
+}
+button.add-btn:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 button{
     background-color: #007bff;
@@ -34,4 +58,63 @@ button{
 button:hover{
     background-color:#0056b3;
     
+}
+#cart-list li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+#cart-list li:hover {
+    background-color: #f9f9f9;
+}
+
+#cart-list button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top:5px;
+}
+
+#cart-list button:hover {
+    background-color: #a71d2a;
+}
+.product {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (max-width: 600px) {
+    #products-container {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+
+    .product {
+        padding: 10px;
+    }
+
+    button.add-btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    #products-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
 }
